@@ -11,7 +11,13 @@ $main-text-white: #f0f0f0;
     html::-webkit-scrollbar{
         display: none !important;
     }
-@media screen and (max-width: "400px") {
+@media screen and (max-width: "395px") {
+    // .board-c-inner{
+    //     display: flex;
+    //     justify-content: center;
+    //     padding: 10px;
+    //     border: solid 2px;
+    // }
     .board{
         transform: rotate(0) !important;
         right: 555px !important;

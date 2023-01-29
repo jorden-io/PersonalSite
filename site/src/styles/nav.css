@@ -6,7 +6,7 @@ html::-webkit-scrollbar {
   display: none !important;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 395px) {
   .board {
     transform: rotate(0) !important;
     right: 555px !important;
@@ -570,7 +570,7 @@ body {
   transform: rotate(30deg);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 395px) {
   .nav-container .routing-links {
     gap: 0px !important;
   }

@@ -6,7 +6,7 @@ html::-webkit-scrollbar {
   display: none !important;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 395px) {
   .board {
     transform: rotate(0) !important;
     right: 555px !important;
@@ -578,7 +578,7 @@ body {
     opacity: 1;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   .about-me {
     margin-left: -35px !important;
   }

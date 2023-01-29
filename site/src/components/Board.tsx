@@ -168,6 +168,7 @@ const Board: FC<Props> = ({ matrix }) => {
           }}
         >
           <div
+            id="board"
             className="board"
             style={{
               position: "absolute",
@@ -180,7 +181,7 @@ const Board: FC<Props> = ({ matrix }) => {
               <td key={ci} style={{ border: "none", padding: "0px" }}>
                 {c.map((r, ri) => (
                   <p
-                  key={ri}
+                    key={ri}
                     id={`p-${ci}-${ri}`}
                     onClick={(e) => {
                       //r.movePiece(matrix, r, startY!, startX!, ci, ri);

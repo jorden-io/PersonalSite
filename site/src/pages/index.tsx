@@ -17,8 +17,38 @@ import TextEditor from "@/components/TextEditor";
 import Link from "next/link";
 import Grid from "@/components/Grid";
 import Board from "@/components/Board";
+import { useEffect, useState } from "react";
 export default function Home() {
-  console.log("ran");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(false);
+    if (window.innerWidth > 390 && window.innerWidth < 450) {
+      const board = document.getElementById("board");
+      const p = document.getElementById("proj-p");
+      if (p) {
+        document.getElementById("git-btn")!.style.marginLeft = "-100px";
+        p.style.width = "160px";
+        p.style.marginLeft = "10px";
+      }
+      if (!!board) {
+        document.getElementById("chess-info")!.style.right = "10px";
+        board.style.marginRight = "275px";
+      }
+    }
+    if (window.innerWidth > 420 && window.innerWidth < 440) {
+      const board = document.getElementById("board");
+      const p = document.getElementById("proj-p");
+      if (p) {
+        document.getElementById("git-btn")!.style.marginLeft = "-100px";
+        p.style.width = "160px";
+        p.style.marginLeft = "10px";
+      }
+      if (!!board) {
+        document.getElementById("chess-info")!.style.right = "0px";
+        board.style.marginRight = "275px";
+      }
+    }
+  }, [loading]);
   return (
     <>
       <Head>
@@ -50,7 +80,7 @@ export default function Home() {
         <div className="projects-info">
           <h1>Projects</h1>
           <hr style={{ border: "solid 1px rgb(18, 18, 18)" }}></hr>
-          <p>
+          <p id="proj-p">
             These are just two of my recent projects.
             <br></br>
             All my projects all packed with all sorts of tech from
@@ -63,6 +93,7 @@ export default function Home() {
           </p>
           <Link href={"https://github.com/jorden-io"}>
             <GrGithub
+              id="git-btn"
               style={{
                 fontSize: "50px",
                 marginTop: "25px",
@@ -145,21 +176,21 @@ export default function Home() {
         >
           <span className="line-span"></span>
           <span className="circle-span">
-          <p
-            style={{
-              color: "white",
-              fontWeight: "800",
-              position: "relative",
-              top: "-7px",
-            }}
-          >
-            2
-          </p>
+            <p
+              style={{
+                color: "white",
+                fontWeight: "800",
+                position: "relative",
+                top: "-7px",
+              }}
+            >
+              2
+            </p>
           </span>
         </div>
       </div>
       <div>
-        <div className="chess-info">
+        <div id="chess-info" className="chess-info">
           <h1>Check Mate</h1>
           <hr></hr>
           <p>
@@ -192,7 +223,9 @@ export default function Home() {
         <br></br>
         <br></br>
         <br></br>
-        <Board matrix={new cMatrix()} />
+        <div className="board-c-inner">
+          <Board matrix={new cMatrix()} />
+        </div>
       </div>
       <div className="jr-footer" style={{ position: "relative", top: "500px" }}>
         <hr style={{ border: "solid 1px rgb(18, 18, 18)" }}></hr>
