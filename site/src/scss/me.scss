@@ -1,0 +1,191 @@
+@import "./main.scss";
+@keyframes showname {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@media screen and (max-width: "400px") {
+    .about-me{
+        margin-left: -35px !important;
+    }
+    .me-container{
+        button{
+            left: 110px;
+        }
+        h1{
+            font-size: 35px !important;
+            z-index: 9;
+        }
+        code{
+            margin-left: -40px;
+            font-size: 10px;
+        }
+    }
+}
+@media screen and (max-width: "750px") {
+    body{
+        transition: 1s;
+    }
+    .me-container{
+        button{
+            margin-left: 100px !important;
+        }
+        margin-left: -30px !important;
+        width: 92% !important;
+        span{
+            margin-left: -225px !important;
+        }
+    }
+    .about-me{
+        margin-left: 50px;
+        margin-top: 400px !important;
+        hr{
+            width: 350px !important;
+        }
+    }
+}
+@keyframes glowin {
+    33%{box-shadow: 0px 0px 3px cyan;}
+    66%{box-shadow: 0px 0px 6px cyan;}
+    99%{box-shadow: 0px 0px 3px cyan;}
+}
+@keyframes glow {
+    33%{
+        box-shadow: 0px 0px 8px cyan;
+    }
+    66%{
+        box-shadow: 0px 0px 12px cyan;
+    }
+    99%{
+        box-shadow: 0px 0px 8px cyan;
+    }
+}
+.me-container{
+    margin-top: 15px;
+    box-shadow: 10px 10px 0px rgb(10, 10, 10);
+    margin: 50px;
+    height: 300px;
+    width: 45%;
+    margin-left: 40%;
+    padding: 50px;
+    border-radius: 200px 50px 200px 50px;
+    background-color: rgb(20, 20, 20);
+    span{
+        //position: relative;
+        background-color: lightseagreen;
+        margin-top: 35px;
+        margin-left: -21%;
+        position: absolute;
+        padding: 75px;
+        border-radius: 100%;
+        box-shadow: 0px 0px 8px cyan;
+        border: solid 1.5px cyan;
+        animation: glow 2s infinite;
+    }
+    iframe{
+        border: solid 1.5px cyan;
+        box-shadow: 0px 0px 6px cyan;
+        z-index: 9;
+        margin-top: 10px;
+        border-radius: 100%;
+        position: relative;
+        right: 34%;
+    }
+        button{
+            margin-top: -25px !important;
+        &:hover{
+            box-shadow: 0px 0px 7px cyan;
+        }
+        background: -webkit-linear-gradient(white, lightseagreen);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: absolute;
+        margin-left: 3%;
+        font-weight: 800;
+        margin-top: 10px;
+            animation: glowin 3s infinite;
+            transition: 1s;
+            border: solid 1px rgb(122, 253, 253);
+            box-shadow: 0px 0px 3px cyan;
+            border-radius: 3px;
+            background-color: grey;
+            content: "3 years experiance";
+            font-size: 15px;
+            padding: 6px;
+        }
+    h1{
+        &:hover{
+        }
+        &:first-child::after{
+            font-size: 25px;
+            padding: 3px;
+            content: " s. ";
+        };
+        margin-top: -40px;
+        margin-bottom: 30px;
+        //margin: 0;
+        background: -webkit-linear-gradient(cyan, indigo);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: showname 3s ease;
+        font-size: 45px;
+        position: relative;
+        left: 32%;
+    }
+}
+.about-me{
+    top: 100px;
+    left: 10px;
+    width: 300px;
+    padding: 50px;
+    margin: 10px;
+    position: absolute;
+    hr{
+        border: solid 1px rgb(22, 22, 22);
+        width: 30vw;
+    }
+    h1{
+        position: relative;
+        right: 65px;
+        background: -webkit-linear-gradient(white, lightseagreen);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        //color: lightseagreen;
+    }
+    p{
+        font-weight: 200;
+    }
+    button{
+        margin-top: 15px;
+        background: rgb(23, 129, 123);
+        border-radius: 5px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        outline-offset: 4px;
+            &:hover{
+                span{
+                transform: translateY(-8px);
+                }
+            }
+        &:active{
+            span{
+                transform: translateY(-1px);
+            }
+        }
+        span{
+            color: $main-text-white;
+            transition: 0.3s;
+            font-weight: 800;
+            display: block;
+            padding: 12px 42px;
+            border-radius: 5px;
+            background: lightseagreen;
+            color: white;
+            transform: translateY(-7px);
+        }
+    }
+}
