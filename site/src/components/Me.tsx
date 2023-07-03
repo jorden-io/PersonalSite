@@ -55,7 +55,7 @@ const Me: FC<Props> = () => {
           <h1>About Me</h1>
           <hr></hr>
           <p>
-            I'm Jorden I specialize in web dev,custom and engine based graphical programming.
+            I'm Jorden I specialize in web dev, custom and engine based graphical programming.
             {/* a self taught developer who loves computers! I love to demonstrate
           that with my skills! */}
           </p>
