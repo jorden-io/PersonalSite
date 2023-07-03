@@ -7,7 +7,7 @@ const Me: FC<Props> = () => {
         <div className="me-container">
           <h1 style={{ fontFamily: "sans-serif" }}>Jorden</h1>
           <h1>Rodriguez</h1>
-          <button style={{ zIndex: "10" }}>3 years experience </button>
+          <button style={{ zIndex: "10" }}>4 years experience.</button>
           {/* <img src="/"></img> */}
           <div
             style={{
@@ -55,9 +55,7 @@ const Me: FC<Props> = () => {
           <h1>About Me</h1>
           <hr></hr>
           <p>
-            Hi! Im Jorden, a developer who loves all things computers!
-            from web dev to low level projects in c++ and even assembly.
-            I hope you enjoy my latest projects, many more to come!
+            I'm Jorden I specialize in web dev,custom and engine based graphical programming.
             {/* a self taught developer who loves computers! I love to demonstrate
           that with my skills! */}
           </p>
@@ -67,7 +65,7 @@ const Me: FC<Props> = () => {
                 el.scrollIntoView({behavior: "smooth"})
             }
           }}>
-            <span> recent projects</span>
+            <span>recent projects</span>
           </button>
         </div>
       </div>

@@ -18,8 +18,10 @@
     "next": "13.1.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-grid-gallery": "^1.0.0",
     "react-icons": "^4.7.1",
     "sass": "^1.57.1",
+    "simplex-noise": "^4.0.1",
     "typescript": "4.9.4"
   }
 }
