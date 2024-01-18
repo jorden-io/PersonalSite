@@ -63,8 +63,9 @@ html::-webkit-scrollbar {
     font-size: 10px !important;
   }
   .wrapper .logo-container .logos {
-    gap: 5px !important;
-    width: 180px;
+    font-size: 25px !important;
+    gap: 8px !important;
+    width: 200px;
   }
   .wrapper .board {
     position: relative !important;

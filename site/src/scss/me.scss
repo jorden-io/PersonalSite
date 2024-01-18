@@ -40,6 +40,8 @@
     }
   }
   .about-me {
+    width: 350px !important;
+    top: 150px !important;
     margin-left: 50px;
     margin-top: 400px !important;
     hr {
@@ -157,7 +159,7 @@
   h1 {
     position: relative;
     right: 65px;
-    background: -webkit-linear-gradient(white, lightseagreen);
+    background: -webkit-linear-gradient(white, grey);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     //color: lightseagreen;

@@ -63,8 +63,9 @@ html::-webkit-scrollbar {
     font-size: 10px !important;
   }
   .wrapper .logo-container .logos {
-    gap: 5px !important;
-    width: 180px;
+    font-size: 25px !important;
+    gap: 8px !important;
+    width: 200px;
   }
   .wrapper .board {
     position: relative !important;
@@ -601,12 +602,14 @@ body {
     width: 92% !important;
   }
   .me-container button {
-    margin-left: 100px !important;
+    margin-left: 90px !important;
   }
   .me-container span {
     margin-left: -225px !important;
   }
   .about-me {
+    width: 350px !important;
+    top: 150px !important;
     margin-left: 50px;
     margin-top: 400px !important;
   }
@@ -722,7 +725,7 @@ body {
 .about-me h1 {
   position: relative;
   right: 65px;
-  background: -webkit-linear-gradient(white, lightseagreen);
+  background: -webkit-linear-gradient(white, grey);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
