@@ -602,7 +602,7 @@ body {
     width: 92% !important;
   }
   .me-container button {
-    margin-left: 90px !important;
+    margin-left: 100px !important;
   }
   .me-container span {
     margin-left: -225px !important;
@@ -712,9 +712,9 @@ body {
 
 .about-me {
   top: 100px;
-  left: 10px;
+  left: 30px;
   width: 300px;
-  padding: 50px;
+  padding: 20px;
   margin: 10px;
   position: absolute;
 }
