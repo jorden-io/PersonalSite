@@ -11,4 +11,4 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
 };
-//module.exports = nextConfig;
+module.exports = nextConfig;

@@ -4,6 +4,7 @@ import "../styles/nav.css";
 import "../styles/footer.css";
 import "../styles/me.css";
 import "../styles/contact.css";
+import "../styles/new.css";
 import type { AppProps } from "next/app";
 import Wrapper from "@/components/Wrapper";
 import Nav from "@/components/Nav";

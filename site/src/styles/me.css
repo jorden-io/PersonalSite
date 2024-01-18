@@ -63,7 +63,8 @@ html::-webkit-scrollbar {
     font-size: 10px !important;
   }
   .wrapper .logo-container .logos {
-    width: 450px;
+    gap: 5px !important;
+    width: 180px;
   }
   .wrapper .board {
     position: relative !important;
@@ -132,7 +133,7 @@ html::-webkit-scrollbar {
     margin-top: 10px;
   }
   .grid div td {
-    padding: 5.5px !important;
+    padding: 3.5px !important;
   }
 }
 .hidden {
@@ -268,7 +269,7 @@ body {
 .projects-container .editor-container {
   position: relative;
   margin-top: 25px;
-  right: 80px;
+  right: 0px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -539,9 +540,7 @@ body {
   background-color: rgb(22, 22, 22);
   width: 350px;
   border-radius: 10px 80px 10px 80px;
-  margin-top: 670px;
-  padding-top: 25px;
-  right: 53vw;
+  right: 10vw;
   padding: 20px;
 }
 .chess-info h1 {
@@ -550,7 +549,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
-  right: 80px;
 }
 .chess-info p {
   position: relative;
@@ -599,7 +597,7 @@ body {
     transition: 1s;
   }
   .me-container {
-    margin-left: -30px !important;
+    margin-left: -35px !important;
     width: 92% !important;
   }
   .me-container button {
@@ -639,8 +637,9 @@ body {
   }
 }
 .me-container {
+  border: solid 1px cyan;
   margin-top: 15px;
-  box-shadow: 10px 10px 0px rgb(10, 10, 10);
+  box-shadow: 10px 10px 0px cyan;
   margin: 50px;
   height: 300px;
   width: 45%;
@@ -694,7 +693,7 @@ body {
 .me-container h1 {
   margin-top: -40px;
   margin-bottom: 30px;
-  background: -webkit-linear-gradient(cyan, indigo);
+  background: -webkit-linear-gradient(cyan, white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: showname 3s ease;

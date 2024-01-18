@@ -11,7 +11,7 @@ import {
   SiReact,
   SiMaytag,
 } from "react-icons/si";
-import { DiGithubFull } from "react-icons/di";
+import { DiGithubAlt, DiGithubBadge, DiGithubFull } from "react-icons/di";
 import { GrNode } from "react-icons/gr";
 import Me from "@/components/Me";
 import TextEditor from "@/components/TextEditor";
@@ -25,68 +25,70 @@ import { Gallery } from "react-grid-gallery";
 import perlinNoise from "../perlin";
 const images = [
   {
-     src: "/mountain.png",
-     width: 320,
-     height: 174,
+    src: "/mountain.png",
+    width: 320,
+    height: 174,
   },
   {
-     src: "/land.png",
-     width: 100,
-     height: 50,
+    src: "/land.png",
+    width: 100,
+    height: 50,
   },
   {
-     src: "/bluespace.png",
-     width: 500,
-     height: 250,
+    src: "/bluespace.png",
+    width: 500,
+    height: 250,
   },
   {
-     src: "/wire.png",
-     width: 250,
-     height: 200,
+    src: "/wire.png",
+    width: 250,
+    height: 200,
   },
   {
-     src: "/donut.png",
-     width: 320,
-     height: 174,
+    src: "/donut.png",
+    width: 320,
+    height: 174,
   },
   {
-     src: "/colorf.png",
-     width: 320,
-     height: 174,
+    src: "/colorf.png",
+    width: 320,
+    height: 174,
   },
   {
-     src: "/tess_example.png",
-     width: 320,
-     height: 174,
+    src: "/tess_example.png",
+    width: 320,
+    height: 174,
   },
   {
-     src: "/water.jpeg",
-     width: 320,
-     height: 174,
+    src: "/water.jpeg",
+    width: 320,
+    height: 174,
   },
   {
-     src: "/rainbow.jpeg",
-     width: 320,
-     height: 174,
+    src: "/rainbow.jpeg",
+    width: 320,
+    height: 174,
   },
   {
-     src: "cloth.jpeg",
-     width: 320,
-     height: 212,
+    src: "cloth.jpeg",
+    width: 320,
+    height: 212,
   },
 
   {
-     src: "space.jpeg",
-     width: 320,
-     height: 212,
+    src: "space.jpeg",
+    width: 320,
+    height: 212,
   },
   {
-     src: "red.png",
-     width: 500,
-     height: 250,
+    src: "red.png",
+    width: 500,
+    height: 250,
   },
 ];
 export default function Home() {
+  let mouseX = 10;
+  let mouseY = 100;
   const noise3D = createNoise3D();
   let cubePositions: Array<Array<Array<number>>> = [[[]]];
   for (let i = 0; i < 5; i++) {
@@ -132,6 +134,7 @@ export default function Home() {
     "attribute vec3 vertPosition;",
     "attribute vec3 vertColor;",
     "varying vec3 fragColor;",
+    "varying vec3 fragPos;",
     "uniform mat4 mWorld;",
     "uniform mat4 mView;",
     "uniform mat4 mProj;",
@@ -140,6 +143,7 @@ export default function Home() {
     "{",
     "  fragColor = vertColor;",
     "  gl_Position = mProj * mView * mWorld * vec4(vertPosition, 1.0);",
+    "  fragPos = gl_Position.xyz ;",
     "}",
   ].join("\n");
 
@@ -147,16 +151,33 @@ export default function Home() {
     "precision mediump float;",
     "",
     "varying vec3 fragColor;",
+    "varying vec3 fragPos;",
+    "uniform vec3 mousePos;",
     "void main()",
     "{",
-    //"  gl_FragColor = vec4(fragColor, 1.0);",
-    "  gl_FragColor = vec4(fragColor.x - 0.2, fragColor.y - 0.3, fragColor.z + 0.2, 1.0);",
+    "float dist = sqrt((pow((fragPos.x - mousePos.x), 2.0)) + (pow((fragPos.y - mousePos.y), 2.0) ));",
+    //"vec3 lightColor = vec3(0.0, 0.6, 0.7);",
+    "vec3 lightColor = vec3(fragPos.x * 0.2, fragPos.y * 0.3, 0.75);",
+    "float ambientStrength = 0.001;",
+    "vec3 ambient = ambientStrength * lightColor;",
+    "vec3 lightPos = vec3(mousePos.x * 3.0, mousePos.y * 2.0, 0);",
+    "vec3 lightDir = normalize(fragPos - lightPos);",
+    "float diff = max(dot(fragPos, lightDir), 0.0);",
+    "vec3 diffuse = diff * lightColor;",
+    " float specularStrength = 0.5;",
+    "vec3 viewDir = normalize(mousePos - fragPos);",
+    "vec3 reflectDir = reflect(-lightDir, fragPos);",
+    "float spec = pow(max(dot(float(viewDir), float(reflectDir)), 0.0), 126.0);",
+    "vec3 specular = specularStrength * spec * lightColor;",
+    "vec3 final = (diffuse + ambient) * lightColor;",
+    "  gl_FragColor = vec4(final, 0.2);",
+    "  //gl_FragColor = vec4(fragColor.x - 0.2, fragColor.y - 0.3, fragColor.z + 0.2, 1.0);",
     "}",
   ].join("\n");
 
   var InitDemo = function () {
     var canvas: any = document.getElementById("game-surface");
-    var gl: any = canvas.getContext("webgl");
+    var gl: WebGLRenderingContext = canvas.getContext("webgl");
 
     if (!gl) {
       console.log("WebGL not supported, falling back on experimental-webgl");
@@ -177,8 +198,8 @@ export default function Home() {
     //
     // Create shaders
     //
-    var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-    var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+    var vertexShader: WebGLShader = gl.createShader(gl.VERTEX_SHADER)!;
+    var fragmentShader: WebGLShader = gl.createShader(gl.FRAGMENT_SHADER)!;
 
     gl.shaderSource(vertexShader, vertexShaderText);
     gl.shaderSource(fragmentShader, fragmentShaderText);
@@ -201,7 +222,7 @@ export default function Home() {
       return;
     }
 
-    var program = gl.createProgram();
+    var program: WebGLProgram = gl.createProgram()!;
     gl.attachShader(program, vertexShader);
     gl.attachShader(program, fragmentShader);
     gl.linkProgram(program);
@@ -214,11 +235,7 @@ export default function Home() {
       console.error("ERROR validating program!", gl.getProgramInfoLog(program));
       return;
     }
-
-    //
-    // Create buffer
-    //
-    var boxVertices = [
+    var boxVertices: Array<number> = [
       // X, Y, Z           R, G, B
       // Top
       -1.0, 1.0, -1.0, 0.5, 0.5, 0.5, -1.0, 1.0, 1.0, 0.5, 0.5, 0.5, 1.0, 1.0,
@@ -287,7 +304,7 @@ export default function Home() {
       positionAttribLocation, // Attribute location
       3, // Number of elements per attribute
       gl.FLOAT, // Type of elements
-      gl.FALSE,
+      false,
       6 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
       0 // Offset from the beginning of a single vertex to this attribute
     );
@@ -295,7 +312,7 @@ export default function Home() {
       colorAttribLocation, // Attribute location
       3, // Number of elements per attribute
       gl.FLOAT, // Type of elements
-      gl.FALSE,
+      false,
       6 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
       3 * Float32Array.BYTES_PER_ELEMENT // Offset from the beginning of a single vertex to this attribute
     );
@@ -309,6 +326,7 @@ export default function Home() {
     var matWorldUniformLocation = gl.getUniformLocation(program, "mWorld");
     var matViewUniformLocation = gl.getUniformLocation(program, "mView");
     var matProjUniformLocation = gl.getUniformLocation(program, "mProj");
+    var mousePos = gl.getUniformLocation(program, "mousePos");
 
     var worldMatrix = new Float32Array(16);
     var viewMatrix = new Float32Array(16);
@@ -324,9 +342,9 @@ export default function Home() {
       1000.0
     );
 
-    gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
-    gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix);
-    gl.uniformMatrix4fv(matProjUniformLocation, gl.FALSE, projMatrix);
+    gl.uniformMatrix4fv(matWorldUniformLocation, false, worldMatrix);
+    gl.uniformMatrix4fv(matViewUniformLocation, false, viewMatrix);
+    gl.uniformMatrix4fv(matProjUniformLocation, false, projMatrix);
 
     var xRotationMatrix = new Float32Array(16);
     var yRotationMatrix = new Float32Array(16);
@@ -353,8 +371,9 @@ export default function Home() {
         mat4.translate(cubePos[i], worldMatrix, translate);
 
         vec3.set(translate, 0, 0, i + 3);
-
-        gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
+        gl.useProgram(program);
+        gl.uniform3f(mousePos, mouseX, mouseY, 1);
+        gl.uniformMatrix4fv(matWorldUniformLocation, false, worldMatrix);
 
         gl.drawElements(gl.TRIANGLES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
       }
@@ -393,6 +412,10 @@ export default function Home() {
         board.style.marginRight = "275px";
       }
     }
+    window.addEventListener("mousemove", (e) => {
+      mouseX = -e.clientX;
+      mouseY = e.clientY;
+    });
   }, [loading]);
   return (
     <>
@@ -402,10 +425,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
+      <div className="canvas-container">
         <canvas
-        //</div>
-        style={{position: "absolute", display: "flex", justifyContent: "center", margin: "0px", padding: "0px",}}
+          style={{
+            position: "absolute",
+            display: "flex",
+            justifyContent: "center",
+            margin: "0px",
+            padding: "0px",
+          }}
           id="game-surface"
           //ref={canvas}
           width="400px"
@@ -413,6 +441,7 @@ export default function Home() {
         ></canvas>
       </div>
       <Me />
+
       <div className="logo-container">
         <span className="span-bar1"></span>
         <div className="logos">
@@ -427,10 +456,12 @@ export default function Home() {
         </div>
         <span className="span-bar2"></span>
       </div>
+
       <p style={{ color: "grey", fontWeight: "200", marginTop: "45px" }}>
         recent projects
       </p>
-      <div className="projects-container">
+
+      {/* <div className="projects-container">
         <TextEditor />
         <div className="projects-info">
           <h1>Projects</h1>
@@ -515,117 +546,108 @@ export default function Home() {
               }}
             />
           </Link>
-          <button style={{zIndex: "9"}}>
-            <Link href={""}>{/* <BsFileEarmarkCode /> */}</Link>
+          <button style={{ zIndex: "9" }}>
+            <Link href={""}>{/* <BsFileEarmarkCode /></Link>
           </button>
-          <h2>Gallery</h2>
-        </div>
-        <div
-          className="line-container"
-          style={{
-            position: "absolute",
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "1020px",
-          }}
-        >
-          <div style={{marginRight: "1050px", marginTop: "-625px"}}>
-
-        <div id="chess-info" className="chess-info">
-          <h1>3D Engine</h1>
-          <hr></hr>
-          <p>
-            Here are some images of scenes I built with my ground up graphics engine built in OpenGL
-            <br></br>
-            src here:
-          </p>
-          <Link href={"https://github.com/jorden-io/3DGraphicsEngine"}>
-            <DiGithubFull
-              style={{
-                fontSize: "60px",
-                color: "cyan",
-                position: "relative",
-                zIndex: 9,
-              }}
-            />
-          </Link>
-
-          <img
-            style={{
-              width: "350px",
-              position: "absolute",
-              right: "0px",
-              top: "0px",
-            }}
-            src="/king.png"
-          ></img>
-        </div>
-          </div>
-
-          <img width="750px" height="450px" src="/dnoise.png" style={{position: "absolute", marginLeft: "650px"}}></img>
-          <span className="line-span"></span>
-          <span className="circle-span">
-            <p
-              style={{
-                color: "white",
-                fontWeight: "800",
-                position: "relative",
-                top: "-7px",
-              }}
-            >
-              2
-            </p>
-          </span>
-        </div>
-      </div>
-      <div style={{marginTop: "1130px", marginBottom: "-420px", padding: "20px"}}>
-        {/* <img src="../mountain.png" width="650px" height="200px"></img> */}
-        <div style={{border: "solid 1px cyan", borderRadius: "5px", boxShadow: "0px 0px 10px cyan", padding: "0px"}}>
-        <Gallery  images={images} />
-        </div>
-      </div>
-      {/* <div> */}
-        {/* <div id="chess-info" className="chess-info">
-          <h1>Check Mate</h1>
-          <hr></hr>
-          <p>
-            Everyone loves chess, thats why I wanted to make my own! Implemented
-            from scratch, to every possible move, to the UI design! play with
-            friends or just by yourself.
-            <br></br>
-            src here:
-          </p>
-          <Link href={"https://github.com/jorden-io/chess"}>
-            <DiGithubFull
-              style={{
-                fontSize: "60px",
-                color: "cyan",
-                position: "relative",
-                zIndex: 9,
-              }}
-            />
-          </Link>
-
-          <img
-            style={{
-              width: "350px",
-              position: "absolute",
-              right: "0px",
-              top: "0px",
-            }}
-            src="/king.png"
-          ></img>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className="board-c-inner">
-          <Board matrix={new cMatrix()} />
         </div>
       </div> */}
 
-
-      <div className="jr-footer" style={{ position: "relative", top: "500px" }}>
+      <div
+        className="proj-con"
+        style={{
+          borderRadius: "10px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          className="d1"
+          style={{
+            padding: "30px",
+          }}
+        >
+          <div className="projects-container">
+            <TextEditor />
+          </div>
+        </div>
+        <div
+          className="d2"
+          style={{
+            padding: "30px",
+          }}
+        >
+          <div>
+            <div style={{ display: "block" }}>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <div
+                  style={{
+                    textAlign: "center",
+                    width: "3px",
+                    height: "420px",
+                    background: "linear-gradient(0deg,cyan,#181818)",
+                  }}
+                ></div>
+              </div>
+              <div
+                style={{
+                  padding: "20px",
+                  borderRadius: "100px",
+                  background: "linear-gradient(to bottom,cyan, #36c933)",
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="d3"
+          style={{
+            padding: "30px",
+            width: "420px",
+          }}
+        >
+          <div style={{ display: "block" }}>
+            <h1
+              style={{ fontSize: "40px", fontWeight: "200", textAlign: "left" }}
+            >
+              projects
+            </h1>
+            <hr
+              style={{ backgroundColor: "grey", border: "solid 1px grey" }}
+            ></hr>
+            <p style={{ width: "350px", fontWeight: "100" }}>
+              These are just two of my recent projects. All my projects all
+              packed with all sorts of tech from Typescript to C++ theres
+              something for everyone! feel free to browse the rest on GitHub!
+              Thank you!
+            </p>
+            <a>
+              <DiGithubBadge
+                style={{
+                  fontSize: "105px",
+                  color: "lightseagreen",
+                }}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <h1
+        id="algo-vis"
+        style={{
+          margin: "0px",
+          fontWeight: "100",
+          color: "white",
+          marginBottom: "15px",
+        }}
+      >
+        algorithm visualizer
+      </h1>
+      <div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Grid matrix={new Matrix(20, 40)} />
+        </div>
+      </div>
+      <div className="jr-footer" style={{ position: "relative", top: "600px" }}>
         <hr style={{ border: "solid 1px rgb(18, 18, 18)" }}></hr>
         <img
           style={{
@@ -636,12 +658,7 @@ export default function Home() {
           }}
           src="/jr.png"
         ></img>
-        {/* <p style={{ fontWeight: "200", padding: "25px", marginTop: "-10px" }}>
-          thank you!
-        </p> */}
-        {/* <button></button> */}
       </div>
-      {/* <p> hello! </p> */}
     </>
   );
 }
