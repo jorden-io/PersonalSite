@@ -421,7 +421,7 @@ export default function Home() {
   useEffect(() => {
     sinCanvas = document.getElementById("sin-canvas")!;
     context = sinCanvas.getContext("2d")!;
-    sinCanvas.width = "2000";
+    sinCanvas.width = "1000";
     let wave = 0;
     setInterval(() => {
       context.clearRect(0, 0, sinCanvas!.width, sinCanvas!.height);
@@ -429,7 +429,7 @@ export default function Home() {
         wave += 0.00005;
         context.beginPath();
         context.arc(
-          250 + i * 2,
+          i * 2,
           100 -
             Math.sin(Math.PI * i * 0.05) *
               -mouseY *
@@ -677,8 +677,13 @@ export default function Home() {
           <Grid matrix={new Matrix(20, 40)} />
         </div>
       </div>
-
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          overflow: "hidden",
+        }}
+      >
         <canvas height={500} width={500} id="sin-canvas"></canvas>
       </div>
 
