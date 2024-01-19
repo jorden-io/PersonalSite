@@ -381,7 +381,8 @@ export default function Home() {
     };
     requestAnimationFrame(loop);
   };
-
+  let sinCanvas: any;
+  let context: CanvasRenderingContext2D;
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     InitDemo();
@@ -417,6 +418,35 @@ export default function Home() {
       mouseY = e.clientY;
     });
   }, [loading]);
+  useEffect(() => {
+    sinCanvas = document.getElementById("sin-canvas")!;
+    context = sinCanvas.getContext("2d")!;
+    sinCanvas.width = "2000";
+    let wave = 0;
+    setInterval(() => {
+      context.clearRect(0, 0, sinCanvas!.width, sinCanvas!.height);
+      for (let i = 0; i < 500; i += 1) {
+        wave += 0.00005;
+        context.beginPath();
+        context.arc(
+          250 + i * 2,
+          100 -
+            Math.sin(Math.PI * i * 0.05) *
+              -mouseY *
+              0.001 *
+              Math.sin(Math.PI * i * 0.01 + wave) *
+              70,
+          5,
+          0,
+          Math.PI * 2
+        );
+        context.fillStyle = "cyan";
+        context.closePath();
+        context.fill();
+        //context.stroke();
+      }
+    }, 50);
+  }, []);
   return (
     <>
       <Head>
@@ -647,6 +677,11 @@ export default function Home() {
           <Grid matrix={new Matrix(20, 40)} />
         </div>
       </div>
+
+      <div>
+        <canvas height={500} width={500} id="sin-canvas"></canvas>
+      </div>
+
       <div className="jr-footer" style={{ position: "relative", top: "600px" }}>
         <hr style={{ border: "solid 1px rgb(18, 18, 18)" }}></hr>
         <img
