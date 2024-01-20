@@ -679,6 +679,8 @@ export default function Home() {
       </div>
       <div
         style={{
+          margin: "0px",
+          padding: "0px",
           display: "flex",
           justifyContent: "center",
           overflow: "hidden",
