@@ -29,12 +29,16 @@
   body {
     transition: 1s;
   }
+  .about-me-container{
+    display: flex;
+    justify-content: center;
+  }
   .me-container {
     button {
       margin-left: 100px !important;
     }
     margin-left: -35px !important;
-    width: 92% !important;
+    width: 94% !important;
     span {
       margin-left: -225px !important;
     }

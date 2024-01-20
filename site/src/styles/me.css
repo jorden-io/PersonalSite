@@ -594,9 +594,13 @@ body {
   body {
     transition: 1s;
   }
+  .about-me-container {
+    display: flex;
+    justify-content: center;
+  }
   .me-container {
     margin-left: -35px !important;
-    width: 92% !important;
+    width: 94% !important;
   }
   .me-container button {
     margin-left: 100px !important;

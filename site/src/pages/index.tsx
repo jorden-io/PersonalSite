@@ -603,7 +603,7 @@ export default function Home() {
           </button>
         </div>
       </div> */}
-<div style={{display: "flex", justifyContent: "center"}}>
+{/* <div style={{display: "flex", justifyContent: "center"}}> */}
       <div
         className="proj-con"
         style={{
@@ -683,7 +683,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-</div>
+{/* </div> */}
       <h1
         id="algo-vis"
         style={{
