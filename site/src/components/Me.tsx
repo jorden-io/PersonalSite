@@ -163,7 +163,6 @@ const Me: FC<Props> = () => {
             ></canvas>
           </div>
         </div>
-        <div className={"about-me-container"}>
 
         <div className="about-me">
           <h1>About Me</h1>
@@ -186,7 +185,6 @@ const Me: FC<Props> = () => {
           </button>
         </div>
         </div>
-      </div>
     </>
   );
 };

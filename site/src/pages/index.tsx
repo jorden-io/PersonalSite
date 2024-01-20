@@ -603,7 +603,7 @@ export default function Home() {
           </button>
         </div>
       </div> */}
-
+<div style={{display: "flex", justifyContent: "center"}}>
       <div
         className="proj-con"
         style={{
@@ -683,6 +683,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+</div>
       <h1
         id="algo-vis"
         style={{
@@ -703,7 +704,7 @@ export default function Home() {
           className="wave-container"
             style={{ display: "flex", justifyContent: "center", gap: "10px", width: "50%" }}
           >
-            <p style={{fontWeight: "100", fontSize: "20px"}}>src</p>
+            <p style={{fontWeight: "100", fontSize: "20px", marginRight: "35px"}}>src</p>
             <hr style={{ marginBottom: "-10px" }}></hr>
             <DiGithubFull style={{ fontSize: "63px", color: "cyan" }} />
           </div>
