@@ -158,7 +158,7 @@ const Me: FC<Props> = () => {
             <canvas
               id="bounceCanvas"
               width={900}
-              height={600}
+              height={650}
               style={{ zIndex: "-10", border: "solid 2px cyan" }}
             ></canvas>
           </div>

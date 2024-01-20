@@ -26,6 +26,12 @@
   .proj-con div {
     padding: 0px;
   }
+  .wave-container {
+    width: 56% !important;
+  }
+  p {
+    margin-right: 35px !important;
+  }
 }
 
 /*# sourceMappingURL=new.css.map */

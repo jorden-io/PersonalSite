@@ -700,9 +700,10 @@ export default function Home() {
         </div>
         <div style={{display: "flex", justifyContent: "center"}}>
           <div
+          className="wave-container"
             style={{ display: "flex", justifyContent: "center", gap: "10px", width: "50%" }}
           >
-            <p style={{fontWeight: "100", fontSize: "20px"}}>source code</p>
+            <p style={{fontWeight: "100", fontSize: "20px"}}>src</p>
             <hr style={{ marginBottom: "-10px" }}></hr>
             <DiGithubFull style={{ fontSize: "63px", color: "cyan" }} />
           </div>
