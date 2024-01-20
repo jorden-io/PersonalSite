@@ -9,7 +9,7 @@
 }
 @media screen and (max-width: "420px") {
   .about-me {
-    margin-left: -35px !important;
+    //margin-left: -35px !important;
   }
   .me-container {
     button {
@@ -26,6 +26,10 @@
   }
 }
 @media screen and (max-width: "750px") {
+  .about-me-container{
+    display: flex !important;
+    justify-content: center !important;
+  }
   body {
     transition: 1s;
   }
@@ -149,7 +153,6 @@
 }
 .about-me {
   top: 100px;
-  left: 30px;
   width: 300px;
   padding: 20px;
   margin: 10px;

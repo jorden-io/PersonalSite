@@ -163,6 +163,8 @@ const Me: FC<Props> = () => {
             ></canvas>
           </div>
         </div>
+        <div className={"about-me-container"}>
+
         <div className="about-me">
           <h1>About Me</h1>
           <hr></hr>
@@ -182,6 +184,7 @@ const Me: FC<Props> = () => {
           >
             <span>recent projects</span>
           </button>
+        </div>
         </div>
       </div>
     </>
