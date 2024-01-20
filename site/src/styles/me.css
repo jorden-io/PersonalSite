@@ -640,15 +640,14 @@ body {
   }
 }
 .me-container {
-  border: solid 1px cyan;
   margin-top: 15px;
-  box-shadow: 10px 10px 0px cyan;
+  box-shadow: inset 0px 0px 5px black;
   margin: 50px;
   height: 300px;
   width: 45%;
   margin-left: 40%;
   padding: 50px;
-  border-radius: 200px 50px 200px 50px;
+  border-radius: 0px;
   background-color: rgb(20, 20, 20);
 }
 .me-container span {

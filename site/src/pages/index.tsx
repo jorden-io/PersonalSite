@@ -425,25 +425,46 @@ export default function Home() {
     let wave = 0;
     setInterval(() => {
       context.clearRect(0, 0, sinCanvas!.width, sinCanvas!.height);
+      context.beginPath();
       for (let i = 0; i < 500; i += 1) {
+        //context.beginPath();
         wave += 0.00005;
-        context.beginPath();
-        context.arc(
+        // context.arc(
+        //   i * 2,
+        //   100 -
+        //     Math.sin(Math.PI * i * 0.05) *
+        //       -mouseY *
+        //       0.001 *
+        //       Math.sin(Math.PI * i * 0.01 + wave) *
+        //       70,
+        //   5,
+        //   0,
+        //   Math.PI * 2
+        // );
+        // context.strokeStyle = "cyan";
+        // context.moveTo(
+        //   i * 2,
+        //   100 -
+        //     Math.sin(Math.PI * i * 0.05) *
+        //       -mouseY *
+        //       0.001 *
+        //       Math.sin(Math.PI * i * 0.01 + wave) *
+        //       70
+        // );
+        context.lineWidth = 2;
+        context.lineTo(
           i * 2,
           100 -
             Math.sin(Math.PI * i * 0.05) *
               -mouseY *
               0.001 *
               Math.sin(Math.PI * i * 0.01 + wave) *
-              70,
-          5,
-          0,
-          Math.PI * 2
+              70
         );
-        context.fillStyle = "cyan";
-        context.closePath();
-        context.fill();
-        //context.stroke();
+        context.strokeStyle = `rgb(${0} ${mouseY * 0.3} ${mouseY * 0.5})`;
+        //context.closePath();
+        //context.fill();
+        context.stroke();
       }
     }, 50);
   }, []);
@@ -458,6 +479,7 @@ export default function Home() {
       <div className="canvas-container">
         <canvas
           style={{
+            zIndex: -10,
             position: "absolute",
             display: "flex",
             justifyContent: "center",
@@ -622,7 +644,7 @@ export default function Home() {
                 style={{
                   padding: "20px",
                   borderRadius: "100px",
-                  background: "linear-gradient(to bottom,cyan, #36c933)",
+                  background: "linear-gradient(to bottom,cyan, indigo)",
                 }}
               ></div>
             </div>
@@ -676,17 +698,32 @@ export default function Home() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Grid matrix={new Matrix(20, 40)} />
         </div>
+        <div style={{display: "flex", justifyContent: "center"}}>
+          <div
+            style={{ display: "flex", justifyContent: "center", gap: "10px", width: "50%" }}
+          >
+            <p style={{fontWeight: "100", fontSize: "20px"}}>source code</p>
+            <hr style={{ marginBottom: "-10px" }}></hr>
+            <DiGithubFull style={{ fontSize: "63px", color: "cyan" }} />
+          </div>
+        </div>
+        <hr style={{width: "75%"}}></hr>
       </div>
       <div
         style={{
+          width: "100%",
+          zIndex: "-100",
           margin: "0px",
           padding: "0px",
-          display: "flex",
-          justifyContent: "center",
-          overflow: "hidden",
+          //overflow: "hidden",
         }}
       >
-        <canvas height={500} width={500} id="sin-canvas"></canvas>
+        <canvas
+          style={{ width: "100%" }}
+          height={200}
+          width={500}
+          id="sin-canvas"
+        ></canvas>
       </div>
 
       <div className="jr-footer" style={{ position: "relative", top: "600px" }}>
