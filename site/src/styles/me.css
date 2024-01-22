@@ -642,14 +642,14 @@ body {
 }
 .me-container {
   margin-top: 15px;
-  box-shadow: inset 0px 0px 5px black;
+  box-shadow: inset 0px 0px 8px black;
   margin: 50px;
   height: 300px;
   width: 45%;
   margin-left: 40%;
   padding: 50px;
-  border-radius: 0px;
-  background-color: rgb(20, 20, 20);
+  border-radius: 6px;
+  background-color: rgb(15, 15, 15);
 }
 .me-container span {
   background-color: lightseagreen;

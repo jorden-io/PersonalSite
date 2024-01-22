@@ -419,15 +419,13 @@ export default function Home() {
     });
   }, [loading]);
   useEffect(() => {
-    sinCanvas = document.getElementById("sin-canvas")!;
-    context = sinCanvas.getContext("2d")!;
-    sinCanvas.width = "1000";
+  sinCanvas = document.getElementById("sin-canvas")!;
+  context = sinCanvas.getContext("2d")!;
     let wave = 0;
     setInterval(() => {
       context.clearRect(0, 0, sinCanvas!.width, sinCanvas!.height);
-      context.beginPath();
       for (let i = 0; i < 500; i += 1) {
-        //context.beginPath();
+        context.beginPath();
         wave += 0.00005;
         // context.arc(
         //   i * 2,
@@ -437,7 +435,7 @@ export default function Home() {
         //       0.001 *
         //       Math.sin(Math.PI * i * 0.01 + wave) *
         //       70,
-        //   5,
+        //   3,
         //   0,
         //   Math.PI * 2
         // );
@@ -462,12 +460,13 @@ export default function Home() {
               70
         );
         context.strokeStyle = `rgb(${0} ${mouseY * 0.3} ${mouseY * 0.5})`;
-        //context.closePath();
+        //context.fillStyle = `rgb(${0} ${mouseY * 0.3} ${mouseY * 0.5})`;
+        context.closePath();
         //context.fill();
         context.stroke();
       }
-    }, 50);
-  });
+    }, 10);
+  }, []);
   return (
     <>
       <Head>
@@ -488,8 +487,8 @@ export default function Home() {
           }}
           id="game-surface"
           //ref={canvas}
-          width="400px"
-          height="400px"
+          width={"400px"}
+          height={"400px"}
         ></canvas>
       </div>
       <Me />
@@ -633,18 +632,21 @@ export default function Home() {
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <div
                   style={{
+                    transition: "0.6s",
                     textAlign: "center",
                     width: "3px",
-                    height: "420px",
+                    height: "350px",
                     background: "linear-gradient(0deg,cyan,#181818)",
                   }}
                 ></div>
               </div>
               <div
                 style={{
-                  padding: "20px",
-                  borderRadius: "100px",
-                  background: "linear-gradient(to bottom,cyan, indigo)",
+                  width: "3px",
+                  height: "100px",
+                  // padding: "20px",
+                  // borderRadius: "100px",
+                  background: "linear-gradient(to bottom,cyan, #181818)",
                 }}
               ></div>
             </div>
@@ -718,11 +720,11 @@ export default function Home() {
             >
               src
             </p>
-            <hr style={{ marginBottom: "-10px" }}></hr>
+            <hr style={{ marginBottom: "-10px", border: "solid 1px " }}></hr>
             <DiGithubFull style={{ fontSize: "63px", color: "cyan" }} />
           </div>
         </div>
-        <hr style={{ width: "75%" }}></hr>
+        <hr style={{ width: "75%", border: "Solid 1px" }}></hr>
       </div>
       <div
         style={{
@@ -736,7 +738,7 @@ export default function Home() {
         <canvas
           style={{ width: "100%" }}
           height={200}
-          width={500}
+          width={1000}
           id="sin-canvas"
         ></canvas>
       </div>
