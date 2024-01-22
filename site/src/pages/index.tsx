@@ -451,7 +451,7 @@ export default function Home() {
         //       Math.sin(Math.PI * i * 0.01 + wave) *
         //       70
         // );
-        context.lineWidth = 2;
+        context.lineWidth = 1;
         context.lineTo(
           i * 2,
           100 -
@@ -467,7 +467,7 @@ export default function Home() {
         context.stroke();
       }
     }, 50);
-  }, []);
+  });
   return (
     <>
       <Head>
@@ -603,7 +603,7 @@ export default function Home() {
           </button>
         </div>
       </div> */}
-{/* <div style={{display: "flex", justifyContent: "center"}}> */}
+      {/* <div style={{display: "flex", justifyContent: "center"}}> */}
       <div
         className="proj-con"
         style={{
@@ -683,7 +683,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-{/* </div> */}
+      {/* </div> */}
       <h1
         id="algo-vis"
         style={{
@@ -699,17 +699,30 @@ export default function Home() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Grid matrix={new Matrix(20, 40)} />
         </div>
-        <div style={{display: "flex", justifyContent: "center"}}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <div
-          className="wave-container"
-            style={{ display: "flex", justifyContent: "center", gap: "10px", width: "50%" }}
+            className="wave-container"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+              width: "50%",
+            }}
           >
-            <p style={{fontWeight: "100", fontSize: "20px", marginRight: "35px"}}>src</p>
+            <p
+              style={{
+                fontWeight: "100",
+                fontSize: "20px",
+                marginRight: "35px",
+              }}
+            >
+              src
+            </p>
             <hr style={{ marginBottom: "-10px" }}></hr>
             <DiGithubFull style={{ fontSize: "63px", color: "cyan" }} />
           </div>
         </div>
-        <hr style={{width: "75%"}}></hr>
+        <hr style={{ width: "75%" }}></hr>
       </div>
       <div
         style={{
