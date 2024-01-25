@@ -114,7 +114,7 @@ const Me: FC<Props> = () => {
     let string = "";
     let slowIter = 0;
     let iterval = setInterval(() => {
-      for (let i: number = 0; i < 5; i++) {
+      for (let i: number = 0; i < 8; i++) {
         try {
           if (slowIter >= 27) {
             clearInterval(iterval);
