@@ -32,7 +32,28 @@
       padding: 0px;
     }
   }
-.wave-container{
-width: 56% !important;  
+  .wave-container {
+    width: 56% !important;
+  }
 }
+@keyframes binary {
+  33% {
+  }
+  66%{
+    color: cyan;
+  }
+  99% {
+  }
 }
+
+// @keyframes binary {
+//   33% {
+//     color: indigo;
+//   }
+//   66% {
+//     color: green;
+//   }
+//   99% {
+//     color: cyan;
+//   }
+// }

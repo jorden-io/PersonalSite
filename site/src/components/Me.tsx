@@ -1,5 +1,3 @@
-import { str } from "@/gl-matrix";
-import { rm } from "fs";
 import React, { FC, useEffect } from "react";
 interface Props {}
 class Vector {
@@ -39,8 +37,6 @@ const Me: FC<Props> = () => {
     renderingContex.lineWidth = 0.2;
     renderingContex.strokeStyle = "grey";
     renderingContex.fillStyle = "grey";
-    // renderingContex.strokeStyle = "purple";
-    // renderingContex.fillStyle = "hotpink";
     setInterval(() => {
       renderingContex.clearRect(0, 0, canvas.width!, canvas.height!);
       for (let i = 0; i < 30; i++) {
@@ -58,7 +54,8 @@ const Me: FC<Props> = () => {
               )
           );
           if (dist < 150) {
-            renderingContex.lineWidth = dist * -0.001;
+            renderingContex.lineWidth =
+              dist < 50 ? dist * 0.03 : -dist * -0.002;
             renderingContex.beginPath();
             renderingContex.moveTo(
               particleDirections[i].location.x,
@@ -71,7 +68,18 @@ const Me: FC<Props> = () => {
             renderingContex.closePath();
             renderingContex.stroke();
           }
-          particleDirections[j];
+          //particleDirections[j];
+          if (dist + 2 < 10) {
+            particleDirections[j].velocity.x =
+              -particleDirections[j].velocity.x;
+            particleDirections[j].velocity.y =
+              -particleDirections[j].velocity.y;
+
+            particleDirections[i].velocity.x =
+              -particleDirections[i].velocity.x;
+            particleDirections[i].velocity.y =
+              -particleDirections[i].velocity.y;
+          }
         }
         if (
           particleDirections[i].location.x > canvas.width ||
@@ -99,8 +107,6 @@ const Me: FC<Props> = () => {
           0,
           Math.PI * 2
         );
-        //renderingContex.strokeStyle = "cyan";
-        //renderingContex.stroke();
         renderingContex.fill();
         renderingContex.closePath();
       }
@@ -108,33 +114,26 @@ const Me: FC<Props> = () => {
     let string = "";
     let slowIter = 0;
     let iterval = setInterval(() => {
-      if (slowIter >= 27) {
-        clearInterval(iterval);
+      for (let i: number = 0; i < 5; i++) {
+        try {
+          if (slowIter >= 27) {
+            clearInterval(iterval);
+          }
+          if (string.length > 120) {
+            string = "";
+            slowIter += 1;
+          }
+          const rnum: number = Math.random() * 10;
+          if (rnum > 5) {
+            string += 0;
+          } else {
+            string += 1;
+          }
+          document.getElementById(`ccode${slowIter}`)!.innerHTML! = string;
+          document.getElementById(`ccode${slowIter}`)!.style.animation = "binary 3s ease-out";
+        } catch {}
       }
-      if (string.length > 120) {
-        string = "";
-        slowIter += 1;
-      }
-      const rnum: number = Math.random() * 10;
-      if (rnum > 5) {
-        string += 0;
-      } else {
-        string += 1;
-      }
-      document.getElementById(`ccode${slowIter}`)!.innerHTML! = string;
     }, 0);
-    // for (let i = 0; i < 27; i++) {
-    //   string = "";
-    //   while (string.length < 110) {
-    //     const rnum: number = Math.random() * 10;
-    //     if (rnum > 5) {
-    //       string += 0;
-    //     } else {
-    //       string += 1;
-    //     }
-    //     document.getElementById(`ccode${i}`)!.innerHTML! = string;
-    //   }
-    // }
   }
   return (
     <>
@@ -145,52 +144,17 @@ const Me: FC<Props> = () => {
           <button style={{ zIndex: "10", display: "none" }}>
             4 years experience.
           </button>
-          {/* <img src="/"></img> */}
           <div style={{ position: "relative" }}>
             <div
               style={{
-                //transform: "rotate(20deg)",
-                //overflow: "hidden",
                 position: "absolute",
                 color: "rgb(50, 50, 50)",
-                //top: "225px",
                 left: "-55px",
                 top: "-161px",
                 opacity: "0.4",
                 zIndex: "",
               }}
             >
-              {/* <code>{"int main(){"}</code>
-            <br></br>
-            <code>{"std::vector<int> vec{1, 2, 3};"}</code>
-            <br></br>
-            <code>
-              {
-                "for(int i {0}; i < vec.len; i++){ "
-              }
-            </code>
-            <br></br>
-            <code>{"std::cout << vec[i];"}</code>
-            <br></br>
-            <code>{"if(vec[i] > 1 && != 0){ if(vec[i] > 1 && != 0)"}</code>
-            <br></br>
-            <code>{"if(vec[i] > 450 || i != 64){"}</code>
-            <br></br>
-            <code>{"if(vec[i] > 1 && != 0){"}</code>
-            <br></br>
-            <code>{"if(vec[1] > 1 && != 0){"}</code>
-            <br></br>
-            <code>{"sizeof(long long) > sizeof(double)"}</code>
-            <br></br>
-            <code>{"while(vec[i] > 10 && vec[i] === 10)"}</code>
-            <br></br>
-            <code>{"static_cast<float>(new unsigned int)"}</code>
-            <br></br>
-            <code>{"const signed int* c {new int[64]}"}</code>
-            <br></br>
-            <code>{"using namespace system{"}</code>
-            <br></br>
-            <code>{"[i](int e){ return e; }"}</code> */}
               <br></br>
               <code id="ccode0">{""}</code>
               <br></br>

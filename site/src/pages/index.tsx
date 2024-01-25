@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GrGithub, GrGraphQl } from "react-icons/gr";
 import Matrix from "@/dataStructures/Matrix";
-import { cMatrix } from "@/components/Board";
+//import { cMatrix } from "@/components/Board";
 import {
   SiTypescript,
   SiNextdotjs,
@@ -9,83 +9,19 @@ import {
   SiHtml5,
   SiPostgresql,
   SiReact,
-  SiMaytag,
+  //SiMaytag,
 } from "react-icons/si";
 import { DiGithubAlt, DiGithubBadge, DiGithubFull } from "react-icons/di";
 import { GrNode } from "react-icons/gr";
 import Me from "@/components/Me";
 import TextEditor from "@/components/TextEditor";
-import Link from "next/link";
+//import Link from "next/link";
 import Grid from "@/components/Grid";
-import Board from "@/components/Board";
+//import Board from "@/components/Board";
 import { useEffect, useState } from "react";
 import { mat4, glMatrix, vec3 } from "../gl-matrix";
 import { createNoise3D } from "simplex-noise";
-import { Gallery } from "react-grid-gallery";
-import perlinNoise from "../perlin";
-const images = [
-  {
-    src: "/mountain.png",
-    width: 320,
-    height: 174,
-  },
-  {
-    src: "/land.png",
-    width: 100,
-    height: 50,
-  },
-  {
-    src: "/bluespace.png",
-    width: 500,
-    height: 250,
-  },
-  {
-    src: "/wire.png",
-    width: 250,
-    height: 200,
-  },
-  {
-    src: "/donut.png",
-    width: 320,
-    height: 174,
-  },
-  {
-    src: "/colorf.png",
-    width: 320,
-    height: 174,
-  },
-  {
-    src: "/tess_example.png",
-    width: 320,
-    height: 174,
-  },
-  {
-    src: "/water.jpeg",
-    width: 320,
-    height: 174,
-  },
-  {
-    src: "/rainbow.jpeg",
-    width: 320,
-    height: 174,
-  },
-  {
-    src: "cloth.jpeg",
-    width: 320,
-    height: 212,
-  },
-
-  {
-    src: "space.jpeg",
-    width: 320,
-    height: 212,
-  },
-  {
-    src: "red.png",
-    width: 500,
-    height: 250,
-  },
-];
+// import perlinNoise from "../perlin";
 export default function Home() {
   let mouseX = 10;
   let mouseY = 100;
@@ -195,9 +131,6 @@ export default function Home() {
     gl.frontFace(gl.CCW);
     gl.cullFace(gl.BACK);
 
-    //
-    // Create shaders
-    //
     var vertexShader: WebGLShader = gl.createShader(gl.VERTEX_SHADER)!;
     var fragmentShader: WebGLShader = gl.createShader(gl.FRAGMENT_SHADER)!;
 
@@ -236,28 +169,21 @@ export default function Home() {
       return;
     }
     var boxVertices: Array<number> = [
-      // X, Y, Z           R, G, B
-      // Top
       -1.0, 1.0, -1.0, 0.5, 0.5, 0.5, -1.0, 1.0, 1.0, 0.5, 0.5, 0.5, 1.0, 1.0,
       1.0, 0.5, 0.5, 0.5, 1.0, 1.0, -1.0, 0.5, 0.5, 0.5,
 
-      // Left
       -1.0, 1.0, 1.0, 0.75, 0.25, 0.5, -1.0, -1.0, 1.0, 0.75, 0.25, 0.5, -1.0,
       -1.0, -1.0, 0.75, 0.25, 0.5, -1.0, 1.0, -1.0, 0.75, 0.25, 0.5,
 
-      // Right
       1.0, 1.0, 1.0, 0.25, 0.25, 0.75, 1.0, -1.0, 1.0, 0.25, 0.25, 0.75, 1.0,
       -1.0, -1.0, 0.25, 0.25, 0.75, 1.0, 1.0, -1.0, 0.25, 0.25, 0.75,
 
-      // Front
       1.0, 1.0, 1.0, 1.0, 0.0, 0.15, 1.0, -1.0, 1.0, 1.0, 0.0, 0.15, -1.0, -1.0,
       1.0, 1.0, 0.0, 0.15, -1.0, 1.0, 1.0, 1.0, 0.0, 0.15,
 
-      // Back
       1.0, 1.0, -1.0, 0.0, 1.0, 0.15, 1.0, -1.0, -1.0, 0.0, 1.0, 0.15, -1.0,
       -1.0, -1.0, 0.0, 1.0, 0.15, -1.0, 1.0, -1.0, 0.0, 1.0, 0.15,
 
-      // Bottom
       -1.0, -1.0, -1.0, 0.5, 0.5, 1.0, -1.0, -1.0, 1.0, 0.5, 0.5, 1.0, 1.0,
       -1.0, 1.0, 0.5, 0.5, 1.0, 1.0, -1.0, -1.0, 0.5, 0.5, 1.0,
     ];
@@ -301,26 +227,25 @@ export default function Home() {
     var positionAttribLocation = gl.getAttribLocation(program, "vertPosition");
     var colorAttribLocation = gl.getAttribLocation(program, "vertColor");
     gl.vertexAttribPointer(
-      positionAttribLocation, // Attribute location
-      3, // Number of elements per attribute
-      gl.FLOAT, // Type of elements
+      positionAttribLocation, 
+      3, 
+      gl.FLOAT, 
       false,
-      6 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
-      0 // Offset from the beginning of a single vertex to this attribute
+      6 * Float32Array.BYTES_PER_ELEMENT, 
+      0 
     );
     gl.vertexAttribPointer(
-      colorAttribLocation, // Attribute location
-      3, // Number of elements per attribute
-      gl.FLOAT, // Type of elements
+      colorAttribLocation, 
+      3, 
+      gl.FLOAT, 
       false,
-      6 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
-      3 * Float32Array.BYTES_PER_ELEMENT // Offset from the beginning of a single vertex to this attribute
+      6 * Float32Array.BYTES_PER_ELEMENT,
+      3 * Float32Array.BYTES_PER_ELEMENT 
     );
 
     gl.enableVertexAttribArray(positionAttribLocation);
     gl.enableVertexAttribArray(colorAttribLocation);
 
-    // Tell OpenGL state machine which program should be active.
     gl.useProgram(program);
 
     var matWorldUniformLocation = gl.getUniformLocation(program, "mWorld");
@@ -336,7 +261,6 @@ export default function Home() {
     mat4.perspective(
       projMatrix,
       glMatrix.toRadian(45),
-      //canvas.clientWidth / canvas.clientHeight,
       canvas.width / canvas.height,
       0.1,
       1000.0
@@ -418,38 +342,24 @@ export default function Home() {
       mouseY = e.clientY;
     });
   }, [loading]);
-  useEffect(() => {
-  sinCanvas = document.getElementById("sin-canvas")!;
-  context = sinCanvas.getContext("2d")!;
     let wave = 0;
+  useEffect(() => {
+    sinCanvas = document.getElementById("sin-canvas")!;
+    context = sinCanvas.getContext("2d")!;
+    context.lineWidth = 1;
     setInterval(() => {
       context.clearRect(0, 0, sinCanvas!.width, sinCanvas!.height);
       for (let i = 0; i < 500; i += 1) {
-        context.beginPath();
         wave += 0.00005;
+        context.beginPath();
         // context.arc(
         //   i * 2,
-        //   100 -
-        //     Math.sin(Math.PI * i * 0.05) *
-        //       -mouseY *
-        //       0.001 *
-        //       Math.sin(Math.PI * i * 0.01 + wave) *
-        //       70,
-        //   3,
+        //   100 - Math.sin(Math.PI * i * 0.09) * 0.5 *
+        //   Math.sin(Math.PI * i * 0.01 + wave) * 70,
+        //   1,
         //   0,
         //   Math.PI * 2
         // );
-        // context.strokeStyle = "cyan";
-        // context.moveTo(
-        //   i * 2,
-        //   100 -
-        //     Math.sin(Math.PI * i * 0.05) *
-        //       -mouseY *
-        //       0.001 *
-        //       Math.sin(Math.PI * i * 0.01 + wave) *
-        //       70
-        // );
-        context.lineWidth = 1;
         context.lineTo(
           i * 2,
           100 -
@@ -459,14 +369,14 @@ export default function Home() {
               Math.sin(Math.PI * i * 0.01 + wave) *
               70
         );
-        context.strokeStyle = `rgb(${0} ${mouseY * 0.3} ${mouseY * 0.5})`;
+        //context.strokeStyle = `rgb(${0} ${mouseY * 0.3} ${mouseY * 0.5})`;
         //context.fillStyle = `rgb(${0} ${mouseY * 0.3} ${mouseY * 0.5})`;
         context.closePath();
-        //context.fill();
         context.stroke();
+       // context.fill();
       }
-    }, 10);
-  }, []);
+    }, 30);
+  });
   return (
     <>
       <Head>
@@ -511,98 +421,6 @@ export default function Home() {
       <p style={{ color: "grey", fontWeight: "200", marginTop: "45px" }}>
         recent projects
       </p>
-
-      {/* <div className="projects-container">
-        <TextEditor />
-        <div className="projects-info">
-          <h1>Projects</h1>
-          <hr style={{ border: "solid 1px rgb(18, 18, 18)" }}></hr>
-          <p id="proj-p">
-            These are just two of my recent projects.
-            <br></br>
-            All my projects all packed with all sorts of tech from
-            <br></br>
-            Typescript to C++ theres something for everyone!
-            <br></br>
-            feel free to browse the rest on GitHub!
-            <br></br>
-            Thank you!
-          </p>
-          <Link href={"https://github.com/jorden-io"}>
-            <GrGithub
-              id="git-btn"
-              style={{
-                fontSize: "50px",
-                marginTop: "25px",
-                textDecoration: "none",
-                color: "white",
-              }}
-            />
-          </Link>
-        </div>
-        <span className="line-span"></span>
-        <span className="circle-span">
-          <p
-            style={{
-              color: "white",
-              fontWeight: "800",
-              position: "relative",
-              top: "-7px",
-            }}
-          >
-            1
-          </p>
-        </span>
-        <h2 id="algo-vis">algorithm visualizer</h2>
-        <div className="grid-container">
-          <Grid matrix={new Matrix(20, 40)} />
-          <hr
-            style={{
-              position: "absolute",
-              marginTop: "-45px",
-              border: "solid 1px rgb(18, 18, 18)",
-              width: "95%",
-              transition: "1s",
-            }}
-          ></hr>
-          <hr
-            className="vert-hr"
-            style={{
-              position: "absolute",
-              marginTop: "-44px",
-              border: "none",
-              padding: "1px",
-              //border: "solid 1px rgb(18, 18, 18)",
-              height: "30px",
-              transition: "1s",
-            }}
-          ></hr>
-          <p
-            className="av-p"
-            style={{ position: "absolute", marginTop: "-35px", left: "150px" }}
-          >
-            speaks for itself, src here:
-          </p>
-          <Link
-            className="av-git-link"
-            href={"https://github.com/jorden-io/PathFindVisualizer"}
-          >
-            <DiGithubFull
-              style={{
-                position: "absolute",
-                marginTop: "-48px",
-                fontSize: "50px",
-                right: "200px",
-                color: "cyan",
-              }}
-            />
-          </Link>
-          <button style={{ zIndex: "9" }}>
-            <Link href={""}>{/* <BsFileEarmarkCode /></Link>
-          </button>
-        </div>
-      </div> */}
-      {/* <div style={{display: "flex", justifyContent: "center"}}> */}
       <div
         className="proj-con"
         style={{
@@ -644,8 +462,6 @@ export default function Home() {
                 style={{
                   width: "3px",
                   height: "100px",
-                  // padding: "20px",
-                  // borderRadius: "100px",
                   background: "linear-gradient(to bottom,cyan, #181818)",
                 }}
               ></div>

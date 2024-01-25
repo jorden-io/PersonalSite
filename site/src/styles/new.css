@@ -30,5 +30,10 @@
     width: 56% !important;
   }
 }
+@keyframes binary {
+  66% {
+    color: cyan;
+  }
+}
 
 /*# sourceMappingURL=new.css.map */
