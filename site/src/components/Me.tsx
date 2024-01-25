@@ -130,7 +130,7 @@ const Me: FC<Props> = () => {
             string += 1;
           }
           document.getElementById(`ccode${slowIter}`)!.innerHTML! = string;
-          document.getElementById(`ccode${slowIter}`)!.style.animation = "binary 3s ease-out";
+          document.getElementById(`ccode${slowIter}`)!.style.animation = "binary 3s ease-out -1s";
         } catch {}
       }
     }, 0);
