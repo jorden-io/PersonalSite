@@ -793,10 +793,9 @@ export default function Home() {
               style={{ backgroundColor: "grey", border: "solid 1px grey" }}
             ></hr>
             <p style={{ width: "350px", fontWeight: "100" }}>
-              These are just two of my recent projects. All my projects all
-              packed with all sorts of tech from Typescript to C++ theres
-              something for everyone! feel free to browse the rest on GitHub!
-              Thank you!
+              I pride myself on my wide range of programming skills. My portfolio
+              consists of many different uses of coding technologies, all with one common goal of
+              making fun, creative projects. Feel free to see all of them here. Enjoy the site!
             </p>
             <a>
               <DiGithubBadge
@@ -901,7 +900,14 @@ export default function Home() {
             </div>
             <div style={{ display: "block" }}>
               <h1 style={{ fontWeight: "100" }}>Get To Know Me</h1>
-              <p>additional information</p>
+              <p
+                style={{
+                  color: "#d632f0",
+                  fontWeight: "1000",
+                }}
+              >
+                additional information
+              </p>
               <hr style={{ border: "solid 1px white" }}></hr>
               <div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
@@ -916,7 +922,7 @@ export default function Home() {
                     }}
                   >
                     <p>Fluent in 3 Languages</p>
-                    <hr style={{border: "solid 1px grey"}}></hr>
+                    <hr style={{ border: "solid 1px grey" }}></hr>
                     <ul>
                       <li>English</li>
                       <li>Spanish</li>
@@ -963,8 +969,10 @@ export default function Home() {
                     }}
                   >
                     <p>Im an Artist!</p>
-                    <hr style={{border: "solid 1px grey"}}></hr>
-                    <p>I love all things Art <br></br> and creativity</p>
+                    <hr style={{ border: "solid 1px grey" }}></hr>
+                    <p>
+                      I love all things Art <br></br> and creativity
+                    </p>
                   </div>
                 </div>
               </div>
