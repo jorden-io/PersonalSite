@@ -25,7 +25,7 @@ const Me: FC<Props> = () => {
   });
   if (load) {
     const canvas: any = document.getElementById("bounceCanvas")!;
-    const renderingContex: CanvasRenderingContext2D = canvas.getContext("2d")!;
+    const renderingContex: CanvasRenderingContext2D = canvas!.getContext("2d")!;
     let particleDirections: Array<Particle> = [];
     const speed = 0.7;
     for (let i = 0; i < 30; i++) {
@@ -39,8 +39,8 @@ const Me: FC<Props> = () => {
     renderingContex.fillStyle = "grey";
     setInterval(() => {
       renderingContex.clearRect(0, 0, canvas.width!, canvas.height!);
-      for (let i = 0; i < 30; i++) {
-        for (let j = 0; j < 30; j++) {
+      for (let i = 0; i < 0; i++) {
+        for (let j = 0; j < 0; j++) {
           const dist = Math.sqrt(
             Math.pow(
               particleDirections[i].location.x -
@@ -130,7 +130,8 @@ const Me: FC<Props> = () => {
             string += 1;
           }
           document.getElementById(`ccode${slowIter}`)!.innerHTML! = string;
-          document.getElementById(`ccode${slowIter}`)!.style.animation = "binary 3s ease-out -1s";
+          document.getElementById(`ccode${slowIter}`)!.style.animation =
+            "binary 3s ease-out -1s";
         } catch {}
       }
     }, 0);
@@ -233,7 +234,7 @@ const Me: FC<Props> = () => {
             <h1>About Me</h1>
             <hr></hr>
             <p>
-              Hi, I specialize in full-stack web dev, custom and engine based
+              Hi, im Jorden. I specialize in full-stack web development, custom and engine based
               graphical programming.
               {/* a self taught developer who loves computers! I love to demonstrate
           that with my skills! */}
