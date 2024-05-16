@@ -325,7 +325,7 @@ export default function Home() {
       GRAVITY_X = 0,
       GRAVITY_Y = 0,
       MOUSE_REPEL = false,
-      GROUPS = [60, 60, 60],
+      GROUPS = [10, 10, 10],
       GROUP_COLOURS = ["rgba(97,160,232"];
 
     window.requestAnimFrame =
@@ -350,7 +350,7 @@ export default function Home() {
         threshold = 220,
         play = false,
         spacing = 55,
-        radius = 60,
+        radius = 150,
         limit = radius * 0.66,
         textures,
         num_particles;
