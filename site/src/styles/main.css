@@ -741,5 +741,13 @@ span#title {
     display: none !important;
   }
 }
+@media screen and (max-width: 700px) {
+  .info-box {
+    width: 130px !important;
+  }
+  .info-box p {
+    font-size: 12px !important;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */

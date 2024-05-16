@@ -793,9 +793,10 @@ export default function Home() {
               style={{ backgroundColor: "grey", border: "solid 1px grey" }}
             ></hr>
             <p style={{ width: "350px", fontWeight: "100" }}>
-              I pride myself on my wide range of programming skills. My portfolio
-              consists of many different uses of coding technologies, all with one common goal of
-              making fun, creative projects. Feel free to see all of them here. Enjoy the site!
+              I pride myself on my wide range of programming skills. My
+              portfolio consists of many different uses of coding technologies,
+              all with one common goal of making fun, creative projects. Feel
+              free to see all of them here. Enjoy the site!
             </p>
             <a>
               <DiGithubBadge
@@ -873,7 +874,11 @@ export default function Home() {
       </div> */}
 
       <div class="containere">
-        <div class=" transform-3d card" id="hero-card">
+        <div
+          style={{ overflow: "hidden" }}
+          class=" transform-3d card"
+          id="hero-card"
+        >
           <div
             style={{
               display: "flex",
@@ -912,6 +917,7 @@ export default function Home() {
               <div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <div
+                    className="info-box"
                     style={{
                       fontWeight: "100",
                       width: "180px",
@@ -930,6 +936,7 @@ export default function Home() {
                     </ul>
                   </div>
                   <div
+                    className="info-box"
                     style={{
                       fontWeight: "100",
                       width: "180px",
@@ -946,6 +953,7 @@ export default function Home() {
                 <br></br>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <div
+                    className="info-box"
                     style={{
                       fontWeight: "100",
                       width: "180px",
@@ -959,6 +967,7 @@ export default function Home() {
                     <GiBrain style={{ fontSize: "80px" }} />
                   </div>
                   <div
+                    className="info-box"
                     style={{
                       fontWeight: "100",
                       width: "180px",
