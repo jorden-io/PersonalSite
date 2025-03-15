@@ -20,20 +20,22 @@ import Grid from "@/components/Grid";
 import { useEffect, useState } from "react";
 import { mat4, glMatrix, vec3, set } from "../gl-matrix";
 import { createNoise3D } from "simplex-noise";
+import Computer from "@/components/Compueter";
+import FrogChats from "@/components/FrogChats";
 export default function Home() {
   let mouseX = 10;
   let mouseY = 100;
-  const noise3D = createNoise3D();
-  let cubePositions: Array<Array<Array<number>>> = [[[]]];
-  for (let i = 0; i < 5; i++) {
-    cubePositions[i] = new Array(5);
-    for (let j = 0; j < 5; j++) {
-      cubePositions[i][j] = new Array(5);
-      for (let k = 0; k < 5; k++) {
-        cubePositions[i][j][k] = noise3D(i, j, k);
-      }
-    }
-  }
+  //const noise3D = createNoise3D();
+  //let cubePositions: Array<Array<Array<number>>> = [[[]]];
+  // for (let i = 0; i < 5; i++) {
+  //   cubePositions[i] = new Array(5);
+  //   for (let j = 0; j < 5; j++) {
+  //     cubePositions[i][j] = new Array(5);
+  //     for (let k = 0; k < 5; k++) {
+  //       cubePositions[i][j][k] = noise3D(i, j, k);
+  //     }
+  //   }
+  // }
   var vertexShaderText = [
     "precision mediump float;",
     "",
@@ -621,7 +623,7 @@ export default function Home() {
       };
     })();
     setTimeout(() => {
-      fluid.init("c", screen.width, 750);
+      //fluid.init("c", screen.width, 750);
       //document.getElementById("c")!.style.width = "72rem";
       setTimeout(() => {
         //GRAVITY_Y = 0.4;
@@ -629,61 +631,61 @@ export default function Home() {
     }, 4000);
   });
   // AUCH NUE
-  useEffect(() => {
-    const card = document.getElementById("hero-card");
-    let hover = false;
+  // useEffect(() => {
+  //   const card = document.getElementById("hero-card");
+  //   let hover = false;
 
-    card.addEventListener("mouseenter", (e) => {
-      hover = true;
-    });
+  //   card.addEventListener("mouseenter", (e) => {
+  //     hover = true;
+  //   });
 
-    card.addEventListener("mouseleave", (e) => {
-      hover = false;
-    });
+  //   card.addEventListener("mouseleave", (e) => {
+  //     hover = false;
+  //   });
 
-    let rect = card.getBoundingClientRect();
-    let anchorX = rect.left + rect.width / 2;
-    let anchorY = rect.top + rect.height / 2;
+  //   let rect = card.getBoundingClientRect();
+  //   let anchorX = rect.left + rect.width / 2;
+  //   let anchorY = rect.top + rect.height / 2;
 
-    function onChange() {
-      rect = card.getBoundingClientRect();
-      anchorX = rect.left + rect.width / 2;
-      anchorY = rect.top + rect.height / 2;
-    }
+  //   function onChange() {
+  //     rect = card.getBoundingClientRect();
+  //     anchorX = rect.left + rect.width / 2;
+  //     anchorY = rect.top + rect.height / 2;
+  //   }
 
-    document.body.addEventListener("resize", onChange);
-    window.addEventListener("resize", onChange);
-    document.addEventListener("resize", onChange);
-    document.addEventListener("scroll", onChange);
+  //   document.body.addEventListener("resize", onChange);
+  //   window.addEventListener("resize", onChange);
+  //   document.addEventListener("resize", onChange);
+  //   document.addEventListener("scroll", onChange);
 
-    document.addEventListener("mousemove", (e) => {
-      if (hover) {
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
+  //   document.addEventListener("mousemove", (e) => {
+  //     if (hover) {
+  //       const mouseX = e.clientX;
+  //       const mouseY = e.clientY;
 
-        const angleRad = angle(mouseX, mouseY, anchorX, anchorY);
-        const angleDeg = (angleRad * 180) / Math.PI;
-        const rotateX = Math.sin(angleRad) * 10;
-        const rotateY = Math.cos(angleRad) * 10;
+  //       const angleRad = angle(mouseX, mouseY, anchorX, anchorY);
+  //       const angleDeg = (angleRad * 180) / Math.PI;
+  //       const rotateX = Math.sin(angleRad) * 10;
+  //       const rotateY = Math.cos(angleRad) * 10;
 
-        card.style.setProperty("--rotateX", rotateX + "deg");
-        card.style.setProperty("--rotateY", -1 * rotateY + "deg");
-        card.style.setProperty("--glow-rotation", angleDeg + "deg");
-      } else {
-        card.style.removeProperty("--rotateX");
-        card.style.removeProperty("--rotateY");
-        card.style.removeProperty("--glow-rotation");
-      }
-    });
+  //       card.style.setProperty("--rotateX", rotateX + "deg");
+  //       card.style.setProperty("--rotateY", -1 * rotateY + "deg");
+  //       card.style.setProperty("--glow-rotation", angleDeg + "deg");
+  //     } else {
+  //       card.style.removeProperty("--rotateX");
+  //       card.style.removeProperty("--rotateY");
+  //       card.style.removeProperty("--glow-rotation");
+  //     }
+  //   });
 
-    function angle(cx, cy, ex, ey) {
-      const dy = ey - cy;
-      const dx = ex - cx;
+  //   function angle(cx, cy, ex, ey) {
+  //     const dy = ey - cy;
+  //     const dx = ex - cx;
 
-      const rad = Math.atan2(dy, dx);
-      return rad;
-    }
-  }, []);
+  //     const rad = Math.atan2(dy, dx);
+  //     return rad;
+  //   }
+  // }, []);
   // AUCH NEU ENDLICH
   return (
     <>
@@ -698,7 +700,7 @@ export default function Home() {
           style={{
             zIndex: -10,
             position: "absolute",
-            display: "flex",
+            display: "none",
             justifyContent: "center",
             margin: "0px",
             padding: "0px",
@@ -802,7 +804,7 @@ export default function Home() {
               <DiGithubBadge
                 style={{
                   fontSize: "105px",
-                  color: "lightseagreen",
+                  color: "cyan",
                 }}
               />
             </a>
@@ -964,7 +966,7 @@ export default function Home() {
                     }}
                   >
                     <p>Self Taught</p>
-                    <GiBrain style={{ fontSize: "80px" }} />
+                    <GiBrain style={{ fontSize: "80px", color: "pink" }} />
                   </div>
                   <div
                     className="info-box"
@@ -993,10 +995,10 @@ export default function Home() {
         style={{
           display: "flex",
           justifyContent: "center",
-          marginTop: "-400px",
+          marginTop: "400px",
         }}
       >
-        <canvas id="c"></canvas>
+        {/* <canvas id="c"></canvas> */}
       </div>
       <button style={{ display: "none" }} id="reset"></button>
       <div style={{ display: "none" }} id="info">
@@ -1004,6 +1006,8 @@ export default function Home() {
           <a id="close" href=""></a>
         </div>
       </div>
+      <FrogChats />
+      {/* <Computer /> */}
       {/* NEW */}
     </>
   );

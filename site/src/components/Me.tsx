@@ -139,7 +139,7 @@ const Me: FC<Props> = () => {
   return (
     <>
       <div style={{ marginRight: "10px" }}>
-        <div className="me-container" style={{ overflow: "hidden" }}>
+        <div className="me-container" style={{ overflow: "hidden", background: "radial-gradient(rgb(30 30 60), black)" }}>
           <h1 style={{ fontFamily: "sans-serif", zIndex: "100" }}>Jorden</h1>
           <h1 style={{ zIndex: "100" }}>Rodriguez</h1>
           <button style={{ zIndex: "10", display: "none" }}>
@@ -220,7 +220,7 @@ const Me: FC<Props> = () => {
             height="150"
           ></iframe>
           <span></span>
-          <div style={{ marginTop: "-500px", marginLeft: "-160px" }}>
+          <div style={{ marginTop: "-500px", marginLeft: "-160px"}}>
             <canvas
               id="bounceCanvas"
               width={1100}
