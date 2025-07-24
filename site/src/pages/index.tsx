@@ -22,6 +22,7 @@ import { mat4, glMatrix, vec3, set } from "../gl-matrix";
 import { createNoise3D } from "simplex-noise";
 import Computer from "@/components/Compueter";
 import FrogChats from "@/components/FrogChats";
+import Globe from "@/components/Globe";
 export default function Home() {
   let mouseX = 10;
   let mouseY = 100;
@@ -787,34 +788,41 @@ export default function Home() {
         >
           <div style={{ display: "block" }}>
             <h1
-              style={{ fontSize: "40px", fontWeight: "200", textAlign: "left" }}
+              style={{ fontSize: "40px", fontWeight: "200", textAlign: "left", color: "grey" }}
             >
-              projects
+             bringing the world together 
             </h1>
             <hr
               style={{ backgroundColor: "grey", border: "solid 1px grey" }}
             ></hr>
             <p style={{ width: "350px", fontWeight: "100" }}>
-              I pride myself on my wide range of programming skills. My
-              portfolio consists of many different uses of coding technologies,
-              all with one common goal of making fun, creative projects. Feel
-              free to see all of them here. Enjoy the site!
+              In my free time I like to develop projects that I feel that can better the world. A way I love to do this is through communcation, wether thats through teaching languages, or allowing people to commucate in safe spaces. Here are just a few global projects ive made to help the world communicate better and learn.
             </p>
             <a>
               <DiGithubBadge
                 style={{
                   fontSize: "105px",
-                  color: "cyan",
+                  color: "lightseagreen",
                 }}
               />
             </a>
           </div>
         </div>
       </div>
+
+      <div style={{display: "flex", justifyContent: "center"}}>
+      <div style={{display: "flex", justifyContent: "center"}}>
+        <div>
+
+      <Globe />
+        </div>
+      </div>
+      </div>
       {/* </div> */}
       <h1
         id="algo-vis"
         style={{
+          marginTop: "50px",
           margin: "0px",
           fontWeight: "100",
           color: "white",
@@ -929,11 +937,11 @@ export default function Home() {
                       borderRadius: "5px",
                     }}
                   >
-                    <p>Fluent in 3 Languages</p>
+                    <p>I speak 3 languages!</p>
                     <hr style={{ border: "solid 1px grey" }}></hr>
                     <ul>
                       <li>English</li>
-                      <li>Spanish</li>
+                      <li>Mandarin</li>
                       <li>German</li>
                     </ul>
                   </div>
@@ -999,6 +1007,7 @@ export default function Home() {
         }}
       >
         {/* <canvas id="c"></canvas> */}
+        <h1 style={{color: "cyan", fontWeight: "100"}}>JordenRodriguez.com</h1>
       </div>
       <button style={{ display: "none" }} id="reset"></button>
       <div style={{ display: "none" }} id="info">
