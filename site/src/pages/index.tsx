@@ -790,7 +790,7 @@ export default function Home() {
             <h1
               style={{ fontSize: "40px", fontWeight: "200", textAlign: "left", color: "grey" }}
             >
-             bringing the world together 
+              my goals
             </h1>
             <hr
               style={{ backgroundColor: "grey", border: "solid 1px grey" }}

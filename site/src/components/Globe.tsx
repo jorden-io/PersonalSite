@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const Globe: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -198,12 +197,6 @@ const renderer = new THREE.WebGLRenderer({
     moonPivot.add(moonMesh);
 
     // Handle resize
-    const handleResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    };
-    window.addEventListener('resize', handleResize);
 
     // Animation loop
     let dv = 0;
@@ -229,7 +222,6 @@ const renderer = new THREE.WebGLRenderer({
 
     // Cleanup on unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
       renderer.dispose();
       containerRef.current?.removeChild(renderer.domElement);
     };
@@ -237,15 +229,14 @@ const renderer = new THREE.WebGLRenderer({
 
   return (
     <>
-    <a href='https://rgrammar.com' style={{fontSize: "40px", color: "grey", fontWeight: "100"}}>Rgrammar.com</a>
-    <p>Used all around the world to help people communicate.</p>
+    <a href='https://rgrammar.com' style={{fontSize: "40px", color: "whitesmoke", fontWeight: "100"}}>Rgrammar.com</a>
+    <p style={{color: "grey"}}>Used all around the world to help people communicate.</p>
     <div
       ref={containerRef}
       style={{ width: '100vw', height: '100vh', background: 'transparent' }}
     ></div>
     <br></br>
-    <p>with over 7 languages, we cover a wide range!</p>
-    <div style={{position: "relative", zIndex: "100000"}}>
+    <div style={{position: "relative", zIndex: "100000", display: "none"}}>
     <div id="imgholder" style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", cursor: "pointer"}}>
     <img style={{width: "9%", border: "solid 1px grey"}} src="https://flagcdn.com/w640/de.webp"/>
     <img style={{width: "9%", border: "solid 1px grey"}} src="https://flagcdn.com/w640/ru.webp"/>

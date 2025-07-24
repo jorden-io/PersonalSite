@@ -24,7 +24,8 @@ export default function App({ Component, pageProps }: AppProps) {
             position: "absolute",
             padding: "10px",
             zIndex: "-10",
-            background: "linear-gradient(to top, indigo, black)",
+            //background: "linear-gradient(to top, indigo, black)",
+            background: "black",
             width: "100%",
             height: "3650px",
           }}
