@@ -819,6 +819,7 @@ export default function Home() {
       </div>
       </div>
       {/* </div> */}
+      <hr style={{marginTop: "50px"}}></hr>
       <h1
         id="algo-vis"
         style={{
@@ -883,7 +884,7 @@ export default function Home() {
         ></img>
       </div> */}
 
-      <div class="containere">
+      <div style={{marginTop: "40px"}} class="containere">
         <div
           style={{ overflow: "hidden" }}
           class=" transform-3d card"

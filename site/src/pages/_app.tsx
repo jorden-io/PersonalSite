@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
             zIndex: "-10",
             background: "linear-gradient(to top, indigo, black)",
             width: "100%",
-            height: "3550px",
+            height: "3650px",
           }}
         ></div>
       </div>

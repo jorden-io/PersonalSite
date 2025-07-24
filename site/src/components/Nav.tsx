@@ -17,7 +17,7 @@ const Nav: FC<Props> = () => {
           <Link href={"https://www.linkedin.com/in/jorden-rodriguez-834264242/"}>
             <FaLinkedin className="fa-linked-in" style={{fontSize: "25px", color: "#0077b5"}} />
           </Link>
-          <Link style={{marginTop: "3px"}} href={"/"}>home</Link>
+          <Link style={{marginTop: "3px", display: "none"}} href={"/"}>home</Link>
           <span className="span-bar1"></span>
           <Link href={"https://github.com/jorden-io"}>
           <FaGithub
@@ -28,7 +28,7 @@ const Nav: FC<Props> = () => {
           />
           </Link>
           <span className="span-bar2"></span>
-          <Link style={{marginTop: "3px"}} href={"/contact"}>contact</Link>
+          <Link style={{marginTop: "3px", display: "none"}} href={"/contact"}>contact</Link>
           <Link href={"https://twitter.com/jorden_io"}>
             <FaTwitter className="fa-twitter" style={{fontSize: "25px", color: "#1DA1F2"}}/>
           </Link>
