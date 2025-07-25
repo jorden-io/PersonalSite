@@ -1010,6 +1010,7 @@ export default function Home() {
       >
         {/* <canvas id="c"></canvas> */}
         <h1 style={{color: "cyan", fontWeight: "100"}}>JordenRodriguez.com</h1>
+        <FrogChats />
       </div>
       <button style={{ display: "none" }} id="reset"></button>
       <div style={{ display: "none" }} id="info">
@@ -1017,6 +1018,7 @@ export default function Home() {
           <a id="close" href=""></a>
         </div>
       </div>
+
       {/* <Computer /> */}
       {/* NEW */}
     </>
