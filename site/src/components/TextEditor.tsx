@@ -4,7 +4,7 @@ const TextEditor: FC<Props> = () => {
   return (
     <>
       <div className="editor-container">
-        <section style={{background: "radial-gradient(rgb(40 20 50), black)", border: "solid 1px indigo"}} className="window">
+        <section style={{background: "radial-gradient(rgb(40 20 50), black)", border: "solid 1px indigo", width: "550px"}} className="window">
           <div className="window-top">
             <div className="window__controls">
               <span></span>

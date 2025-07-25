@@ -53,6 +53,12 @@ html::-webkit-scrollbar {
   }
 }
 @media screen and (max-width: 750px) {
+  .d1{
+    display: none !important;
+  }
+  .d2{
+    display: none !important;
+  }
   .wrapper .chess-info {
     right: 25vw;
   }
