@@ -139,7 +139,7 @@ const Me: FC<Props> = () => {
   return (
     <>
       <div style={{ marginRight: "10px" }}>
-        <div className="me-container" style={{ overflow: "hidden", background: "radial-gradient(rgb(30 30 60), black)", border: "solid 1px lightseagreen" }}>
+        <div className="me-container" style={{ overflow: "hidden", opacity: "0.9", background: "radial-gradient(rgb(30 30 60), black)", border: "solid 1px lightseagreen" }}>
           <h1 style={{ fontFamily: "sans-serif", zIndex: "100" }}>Jorden</h1>
           <h1 style={{ zIndex: "100" }}>Rodriguez</h1>
           <button style={{ zIndex: "10", display: "none" }}>

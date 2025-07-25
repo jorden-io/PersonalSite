@@ -765,7 +765,7 @@ export default function Home() {
                     textAlign: "center",
                     width: "3px",
                     height: "350px",
-                    background: "linear-gradient(0deg,cyan,#181818)",
+                    background: "linear-gradient(0deg,indigo,black)",
                   }}
                 ></div>
               </div>
@@ -773,7 +773,7 @@ export default function Home() {
                 style={{
                   width: "3px",
                   height: "100px",
-                  background: "linear-gradient(to bottom,cyan, #181818)",
+                  background: "linear-gradient(to bottom, indigo, black)",
                 }}
               ></div>
             </div>
@@ -796,7 +796,7 @@ export default function Home() {
               style={{ backgroundColor: "grey", border: "solid 1px grey" }}
             ></hr>
             <p style={{ width: "350px", fontWeight: "100" }}>
-              In my free time I like to develop projects that I feel that can better the world. A way I love to do this is through communcation, wether thats through teaching languages, or allowing people to commucate in safe spaces. Here are just a few global projects ive made to help the world communicate better and learn.
+              In my free time I like to develop projects that I feel that can better the peoples lives. A way I love to do this is through communcation, wether thats through teaching languages, or allowing people to commucate in safe spaces. Here are just a few global projects ive made to help people communicate better and learn.
             </p>
             <a>
               <DiGithubBadge
@@ -812,14 +812,14 @@ export default function Home() {
 
       <div style={{display: "flex", justifyContent: "center"}}>
       <div style={{display: "flex", justifyContent: "center"}}>
-        <div>
+        <div style={{width: "100%"}}>
 
       <Globe />
         </div>
       </div>
       </div>
+      <FrogChats />
       {/* </div> */}
-      <hr style={{marginTop: "50px"}}></hr>
       <h1
         id="algo-vis"
         style={{
@@ -1016,7 +1016,6 @@ export default function Home() {
           <a id="close" href=""></a>
         </div>
       </div>
-      <FrogChats />
       {/* <Computer /> */}
       {/* NEW */}
     </>

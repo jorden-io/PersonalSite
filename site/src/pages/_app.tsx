@@ -14,6 +14,12 @@ import Head from "next/head";
 
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+let els = document.querySelectorAll("div")
+// for(let i = 0; i < els.length; i++){
+//   els[i].style.border = "solid 1px red"
+// }
+  }, [])
   return (
     <>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -22,7 +28,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <div
           style={{
             position: "absolute",
-            padding: "10px",
             zIndex: "-10",
             //background: "linear-gradient(to top, indigo, black)",
             background: "black",
