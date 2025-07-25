@@ -252,7 +252,7 @@ const FrogChats: React.FC = () => {
       composer.setSize(w, h);
       bloomPass.resolution.set(w, h);
     };
-    window.addEventListener('resize', onResize);
+    //window.addEventListener('resize', onResize);
 
     // 8) animate
     const clock = new THREE.Clock();
