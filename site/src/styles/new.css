@@ -1,4 +1,10 @@
 @media screen and (max-width: 600px) {
+  .d2{
+    display: none !important;
+  }
+  .d1{
+    display: none !important;
+  }
   .about-me h1 {
     right: 0px !important;
   }
@@ -17,10 +23,12 @@
     padding: 6px !important;
   }
   .proj-con .d3 h1 {
-    font-size: 30px !important;
+    text-align: center !important;
+    font-size: 45px !important;
+    color: whitesmoke !important;
   }
   .proj-con .d3 p {
-    width: 160px !important;
+    /* width: 160px !important; */
     font-size: 10px !important;
   }
   .proj-con div {
