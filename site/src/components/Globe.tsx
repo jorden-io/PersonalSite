@@ -229,7 +229,7 @@ const renderer = new THREE.WebGLRenderer({
 
   return (
     <>
-    <a href='https://rgrammar.com' style={{fontSize: "40px", color: "indigo", fontWeight: "100", textDecoration: "none"}}>Rgrammar.com</a>
+    <a href='https://rgrammar.com' style={{fontSize: "40px", color: "indigo", fontWeight: "100"}}>Rgrammar.com</a>
     <p style={{color: "grey", marginBottom: "-30px"}}>Used all around the world to help people communicate.</p>
     <div
       ref={containerRef}
