@@ -230,7 +230,7 @@ const renderer = new THREE.WebGLRenderer({
   return (
     <>
     <a href='https://rgrammar.com' style={{fontSize: "40px", color: "indigo", fontWeight: "100", textDecoration: "none"}}>Rgrammar.com</a>
-    <p style={{color: "grey"}}>Used all around the world to help people communicate.</p>
+    <p style={{color: "grey", marginBottom: "-30px"}}>Used all around the world to help people communicate.</p>
     <div
       ref={containerRef}
       style={{ width: '100vw', height: '100vh', background: 'transparent' }}

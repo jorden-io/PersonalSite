@@ -884,7 +884,7 @@ export default function Home() {
         ></img>
       </div> */}
 
-      <div style={{marginTop: "40px"}} class="containere">
+      <div style={{marginTop: "-40px"}} class="containere">
         <div
           style={{ overflow: "hidden" }}
           class=" transform-3d card"
