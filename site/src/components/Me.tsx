@@ -119,7 +119,7 @@ const Me: FC<Props> = () => {
           if (slowIter >= 27) {
             clearInterval(iterval);
           }
-          if (string.length > 120) {
+          if (string.length > 150) {
             string = "";
             slowIter += 1;
           }
@@ -150,7 +150,7 @@ const Me: FC<Props> = () => {
               style={{
                 position: "absolute",
                 color: "rgb(50, 50, 50)",
-                left: "-55px",
+                left: "-50px",
                 top: "-161px",
                 opacity: "0.4",
                 zIndex: "",
@@ -223,7 +223,7 @@ const Me: FC<Props> = () => {
           <div style={{ marginTop: "-500px", marginLeft: "-160px"}}>
             <canvas
               id="bounceCanvas"
-              width={1100}
+              width={1500}
               height={650}
               style={{ zIndex: "-10", border: "solid 2px cyan" }}
             ></canvas>
