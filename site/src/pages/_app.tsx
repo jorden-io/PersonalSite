@@ -18,6 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
 let els = document.querySelectorAll("div")
 // for(let i = 0; i < els.length; i++){
 //   els[i].style.border = "solid 1px red"
+document.body.style.transition = "2s"
+document.body.style.background = "black"
 // }
   }, [])
   return (
@@ -32,7 +34,7 @@ let els = document.querySelectorAll("div")
             //background: "linear-gradient(to top, indigo, black)",
             background: "black",
             width: "100%",
-            height: "3650px",
+            // height: "3650px",
           }}
         ></div>
       </div>

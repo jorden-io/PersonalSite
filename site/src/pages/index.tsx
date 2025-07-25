@@ -823,6 +823,7 @@ export default function Home() {
       <h1
         id="algo-vis"
         style={{
+          display: "none",
           marginTop: "50px",
           margin: "0px",
           fontWeight: "100",
@@ -832,7 +833,7 @@ export default function Home() {
       >
         algorithm visualizer
       </h1>
-      <div>
+      <div style={{display: "none"}}>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Grid matrix={new Matrix(20, 40)} />
         </div>
