@@ -801,7 +801,7 @@ export default function Home() {
               <DiGithubBadge
                 style={{
                   fontSize: "105px",
-                  color: "lightseagreen",
+                  color: "cyan",
                 }}
               />
             </a>
@@ -988,10 +988,10 @@ export default function Home() {
                       borderRadius: "5px",
                     }}
                   >
-                    <p>Im an Artist!</p>
+                    <p>Im a Texan</p>
                     <hr style={{ border: "solid 1px grey" }}></hr>
                     <p>
-                      I love all things Art <br></br> and creativity
+                      Born and raised in the big state of Texas!
                     </p>
                   </div>
                 </div>
@@ -1008,7 +1008,6 @@ export default function Home() {
         }}
       >
         {/* <canvas id="c"></canvas> */}
-        <h1 style={{color: "cyan", fontWeight: "100"}}>JordenRodriguez.com</h1>
         <FrogChats />
       </div>
       <button style={{ display: "none" }} id="reset"></button>
@@ -1017,6 +1016,8 @@ export default function Home() {
           <a id="close" href=""></a>
         </div>
       </div>
+        <h1 className="jcom" style={{color: "grey", fontWeight: "100", fontSize: "20px"}}>JordenRodriguez.com</h1>
+        <p style={{background: "indigo", padding: "20px", borderRadius: "10px"}}>contact - jordenrodriguez1004@yahoo.com</p>
 
       {/* <Computer /> */}
       {/* NEW */}
