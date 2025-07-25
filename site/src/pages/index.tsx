@@ -783,7 +783,6 @@ export default function Home() {
           className="d3"
           style={{
             padding: "30px",
-            width: "420px",
           }}
         >
           <div style={{ display: "block" }}>
